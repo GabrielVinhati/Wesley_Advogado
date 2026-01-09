@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;800&display=swap" rel="stylesheet">
-    
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <style>
@@ -244,7 +244,76 @@
         /* --- RESPONSIVIDADE (MOBILE) --- */
         @media (max-width: 768px) {
             h1 { font-size: 2.2rem; }
-            
+            #whatsapp-float {
+    right: 15px;
+    bottom: 15px;
+}
+
+.whatsapp-bubble {
+    font-size: 0.75rem;
+    max-width: 180px;
+    padding: 8px 12px;
+}
+
+.whatsapp-button {
+    width: 50px;
+    height: 50px;
+    font-size: 1.6rem;
+}
+
+            #teacher-section {
+    background: none;
+    min-height: auto;
+    padding: 0;
+}
+
+.teacher-overlay,
+.teacher-container {
+    display: none;
+}
+
+.teacher-mobile {
+    display: block;
+    background-color: var(--dark-bg);
+}
+
+.teacher-mobile img {
+    width: 100%;
+    display: block;
+}
+
+.teacher-mobile-content {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.teacher-mobile .teacher-name {
+    font-size: 1.4rem;
+}
+
+.teacher-mobile .teacher-role {
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+
+.teacher-mobile .teacher-description {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+                #learn-section {
+                    padding: 70px 20px;
+                }
+
+                #learn-section h2 {
+                    font-size: 2rem;
+                }
+
+                .learn-subtitle {
+                    font-size: 1rem;
+                    margin-bottom: 40px;
+                }
+
             /* Ajuste do Background no Mobile */
             #capture-section {
                 background-position: top center; /* Foca no rosto se a imagem for vertical */
@@ -277,7 +346,14 @@
     </style>
 </head>
 <body>
-
+    <nav id="sticky-navbar">
+        <div class="navbar-container">
+            <button id="navbar-cta">
+                Participar do Evento
+            </button>
+        </div>
+    </nav>
+    
     <section id="capture-section">
         <div class="overlay"></div>
         <div class="content-container">
@@ -334,7 +410,97 @@
             </div>
         </div>
     </section>
-
+    <section id="learn-section">
+        <div class="learn-container">
+            <span class="top-tag">Conteúdo 100% Prático</span>
+    
+            <h2>
+                O que você vai aprender na <br>
+                <span>Imersão Trabalhista na Prática</span>
+            </h2>
+    
+            <p class="learn-subtitle">
+                Um treinamento direto ao ponto para você sair do evento sabendo exatamente
+                como atuar, captar clientes e fechar contratos na advocacia trabalhista.
+            </p>
+    
+            <div class="learn-grid">
+                <div class="learn-item">
+                    <i class="fa-solid fa-gavel"></i>
+                    <h3>Prática Trabalhista Real</h3>
+                    <p>Atuação baseada em casos reais do dia a dia, sem teoria vazia.</p>
+                </div>
+    
+                <div class="learn-item">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <h3>Segurança para Advogar</h3>
+                    <p>Aprenda o que fazer e o que evitar para não cometer erros que travam sua carreira.</p>
+                </div>
+    
+                <div class="learn-item">
+                    <i class="fa-solid fa-user-tie"></i>
+                    <h3>Captação de Clientes</h3>
+                    <p>Estratégias práticas para atrair clientes de forma ética e constante.</p>
+                </div>
+    
+                <div class="learn-item">
+                    <i class="fa-solid fa-file-signature"></i>
+                    <h3>Contratos na Advocacia</h3>
+                    <p>Como estruturar contratos claros, seguros e que valorizam o seu trabalho.</p>
+                </div>
+    
+                <div class="learn-item">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <h3>Estratégias Aplicáveis</h3>
+                    <p>Métodos que você pode aplicar imediatamente no seu escritório.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="teacher-section">
+        <div class="teacher-overlay"></div>
+    
+        <!-- Desktop -->
+        <div class="teacher-container">
+            <div class="teacher-content">
+                <span class="top-tag">Quem será seu mentor</span>
+    
+                <h2>
+                    Conheça o <br>
+                    <span>Professor do Evento</span>
+                </h2>
+    
+                <p class="teacher-name">Dr. Nome do Professor</p>
+                <p class="teacher-role">Advogado Trabalhista</p>
+    
+                <p class="teacher-description">
+                    Com mais de <strong>10 anos de atuação</strong> no mercado jurídico,
+                    atua diariamente com advocacia trabalhista na prática,
+                    ajudando advogados a estruturarem seus escritórios,
+                    fecharem contratos com segurança e atuarem com confiança.
+                </p>
+            </div>
+        </div>
+    
+        <!-- Mobile -->
+        <div class="teacher-mobile">
+            <img src="img/Design sem nome.png" alt="Professor do Evento">
+    
+            <div class="teacher-mobile-content">
+                <span class="top-tag">Quem ele é</span>
+    
+                <p class="teacher-name">Dr. Nome do Professor</p>
+                <p class="teacher-role">Advogado Trabalhista</p>
+    
+                <p class="teacher-description">
+                    Advogado com mais de <strong>10 anos de experiência</strong> na advocacia
+                    trabalhista prática, atuando diretamente em casos reais,
+                    contratos e estratégias que funcionam no dia a dia do escritório.
+                </p>
+            </div>
+        </div>
+    </section>
+    
     <section id="thank-you-section">
         <div class="thank-you-container">
             <h1 style="color: #000; font-size: 2.5rem;">ATENÇÃO!</h1>
@@ -354,7 +520,31 @@
             </a>
         </div>
     </section>
-
+    <footer id="site-footer">
+        <div class="footer-container">
+            <p class="footer-event">
+                Imersão Trabalhista na Prática
+            </p>
+            <p class="footer-copy">
+                © 2026 • Todos os direitos reservados
+            </p>
+        </div>
+    </footer>
+    <div id="whatsapp-float">
+        <div class="whatsapp-bubble">
+            Tem alguma dúvida? Clique aqui e fale conosco
+        </div>
+    
+        <a 
+            href="https://wa.me/5599999999999" 
+            target="_blank" 
+            class="whatsapp-button"
+            aria-label="Falar no WhatsApp"
+        >
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+    
     <script>
         // 1. Configuração do Cronômetro
         const targetDate = new Date("January 29, 2026 20:00:00").getTime(); // Ajuste o ano se for 2025
@@ -423,6 +613,6 @@
             });
         });
     </script>
-
+    <script src="main.js"></script>
 </body>
 </html>
