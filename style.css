@@ -122,7 +122,9 @@
     display: flex;
     align-items: center;
 }
-
+#teacher-section img{
+    display: none;
+}
 /* Overlay escuro */
 .teacher-overlay {
     position: absolute;

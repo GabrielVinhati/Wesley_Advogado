@@ -140,7 +140,7 @@
 
         /* --- FORMULÁRIO --- */
         .form-box {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(162, 60, 5, 0.05);
             backdrop-filter: blur(10px);
             padding: 30px;
             border-radius: 15px;
@@ -244,6 +244,14 @@
         /* --- RESPONSIVIDADE (MOBILE) --- */
         @media (max-width: 768px) {
             h1 { font-size: 2.2rem; }
+            #capture-section {
+        background-position: top center; 
+        
+        /* ESTA LINHA ABAIXO É A MÁGICA: */
+        background-image: none !important; /* Remove a imagem de fundo só no celular */
+        
+        background-color: #050505; /* Garante que o fundo fique preto */
+    }
             .top-tag {
             width: auto !important;
             max-width: 100%;
@@ -286,7 +294,7 @@
 
 .teacher-mobile img {
     width: 100%;
-    display: block;
+    display: none;
 }
 
 .teacher-mobile-content {
@@ -347,7 +355,7 @@
             
             .form-box {
                 padding: 20px;
-                background: rgba(0,0,0,0.8); /* Mais escuro para contraste no mobile */
+                background: #FF5722; /* Mais escuro para contraste no mobile */
             }
         }
     </style>
@@ -425,7 +433,7 @@
                 </div>
                 <div class="mentor-card-mobile">
                     <img 
-                        src="https://raw.githubusercontent.com/GabrielVinhati/img-wesley/refs/heads/main/Design%20sem%20nome%20(2).png"
+                        src="https://raw.githubusercontent.com/GabrielVinhati/img-wesley/refs/heads/main/Gemini_Generated_Image_ddjltdddjltdddjl.png"
                         alt="Dr. Wesley Campores"
                     >
                     <p class="mentor-name">Dr. Wesley Campores</p>
