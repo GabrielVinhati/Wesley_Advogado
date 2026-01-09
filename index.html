@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imersão Trabalhista na Prática | Evento Exclusivo</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        /* --- RESET E GLOBAIS --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
+        body { background-color: #050505; color: white; overflow-x: hidden; }
+        
+        /* Cores da Identidade Visual */
+        :root {
+            --primary-orange: #FF5722; /* Laranja da Imagem 2 */
+            --primary-green: #25D366;  /* Verde WhatsApp */
+            --dark-bg: #0a0a0a;
+            --text-gray: #ccc;
+        }
+
+        /* --- CONTAINER PRINCIPAL (WRAPPER) --- */
+        .page-wrapper {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        /* --- SEÇÃO 1: HERO / CAPTURA --- */
+        #capture-section {
+            display: flex;
+            min-height: 100vh;
+            position: relative;
+            /* INSIRA A IMAGEM DO ADVOGADO AQUI NO BACKGROUND */
+            /* A imagem deve ser o advogado na direita e espaço vazio na esquerda */
+            background-image: url('img/Design sem nome (24).png'); 
+            background-size: cover;
+            background-position: center right;
+            background-repeat: no-repeat;
+        }
+
+        /* Overlay para escurecer a imagem e garantir leitura */
+        .overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(90deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.8) 50%, rgba(0,0,0,0.2) 100%);
+            z-index: 1;
+        }
+
+        .content-container {
+            z-index: 2;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .left-column {
+            max-width: 600px;
+            width: 100%;
+        }
+
+        /* --- TIPOGRAFIA --- */
+        .top-tag {
+            color: var(--primary-orange);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            display: block;
+            font-size: 0.9rem;
+            border-bottom: 2px solid var(--primary-orange);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        h1 span { color: var(--primary-orange); }
+
+        .sub-headline {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        /* --- CRONÔMETRO --- */
+        .timer-container {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .time-box {
+            background: rgba(255, 87, 34, 0.1);
+            border: 1px solid var(--primary-orange);
+            padding: 10px 15px;
+            border-radius: 8px;
+            text-align: center;
+            min-width: 80px;
+        }
+
+        .time-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-orange);
+            display: block;
+        }
+
+        .time-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        #timer-error {
+            color: #ff3333;
+            font-weight: bold;
+            display: none;
+            background: rgba(255, 0, 0, 0.1);
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        /* --- FORMULÁRIO --- */
+        .form-box {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .input-group { margin-bottom: 15px; }
+
+        input {
+            width: 100%;
+            padding: 18px;
+            border-radius: 8px;
+            border: 1px solid #444;
+            background-color: #fff;
+            color: #333;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 20px;
+            background-color: var(--primary-green);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 0 20px rgba(37, 211, 102, 0.4);
+        }
+
+        .btn-submit:hover {
+            transform: scale(1.02);
+            background-color: #1ebc57;
+        }
+
+        .security-text {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #666;
+            margin-top: 15px;
+        }
+
+        /* --- SEÇÃO 2: OBRIGADO / WHATSAPP (Inicialmente oculta) --- */
+        #thank-you-section {
+            display: none; /* JS vai alterar isso */
+            min-height: 100vh;
+            background-color: #f4f4f4; /* Fundo claro conforme imagem 1 */
+            color: #333;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .thank-you-container {
+            max-width: 800px;
+            width: 100%;
+        }
+
+        .mockup-container {
+            margin: 30px auto;
+            max-width: 350px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .mockup-img {
+            width: 100%;
+            display: block;
+        }
+
+        .btn-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background-color: var(--primary-green);
+            color: white;
+            text-decoration: none;
+            padding: 20px 40px;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            margin-top: 20px;
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* --- RESPONSIVIDADE (MOBILE) --- */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; }
+            
+            /* Ajuste do Background no Mobile */
+            #capture-section {
+                background-position: top center; /* Foca no rosto se a imagem for vertical */
+                /* INSIRA AQUI A IMAGEM VERSÃO MOBILE SE TIVER UMA ESPECÍFICA */
+                /* background-image: url('img/Design sem nome (24).png'); */
+            }
+
+            .overlay {
+                background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.95) 40%, rgba(0,0,0,1) 100%);
+            }
+
+            .content-container {
+                flex-direction: column;
+                justify-content: flex-end; /* Empurra conteúdo para baixo */
+                padding-bottom: 60px;
+            }
+
+            .timer-container {
+                justify-content: center;
+            }
+            
+            .time-box { min-width: 60px; padding: 5px; }
+            .time-value { font-size: 1.5rem; }
+            
+            .form-box {
+                padding: 20px;
+                background: rgba(0,0,0,0.8); /* Mais escuro para contraste no mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <section id="capture-section">
+        <div class="overlay"></div>
+        <div class="content-container">
+            <div class="left-column">
+                <span class="top-tag">Evento Exclusivo para Advogados</span>
+                
+                <h1>IMERSÃO <br><span>TRABALHISTA NA PRÁTICA</span></h1>
+                
+                <p class="sub-headline">
+                    Descubra como advogar com segurança, fechar contratos todos os dias e dominar a prática trabalhista em 2026.
+                </p>
+
+                <div id="timer-error">⚠️ As inscrições encerraram! O tempo expirou.</div>
+                <div class="timer-container" id="countdown">
+                    <div class="time-box">
+                        <span class="time-value" id="days">00</span>
+                        <span class="time-label">Dias</span>
+                    </div>
+                    <div class="time-box">
+                        <span class="time-value" id="hours">00</span>
+                        <span class="time-label">Horas</span>
+                    </div>
+                    <div class="time-box">
+                        <span class="time-value" id="minutes">00</span>
+                        <span class="time-label">Min</span>
+                    </div>
+                    <div class="time-box">
+                        <span class="time-value" id="seconds">00</span>
+                        <span class="time-label">Seg</span>
+                    </div>
+                </div>
+
+                <div class="form-box" id="signup-form-box">
+                    <form id="leadForm" action="https://formsubmit.co/SEU_EMAIL_AQUI" method="POST">
+                        
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_subject" value="Novo Lead - Imersão Trabalhista">
+
+                        <div class="input-group">
+                            <input type="text" name="name" placeholder="Nome completo" required>
+                        </div>
+                        <div class="input-group">
+                            <input type="email" name="email" placeholder="Seu melhor e-mail" required>
+                        </div>
+                        
+                        <button type="submit" class="btn-submit">
+                            APERTE AQUI PARA SE INSCREVER
+                        </button>
+                        
+                        <p class="security-text"><i class="fa fa-lock"></i> Suas informações estão seguras.</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="thank-you-section">
+        <div class="thank-you-container">
+            <h1 style="color: #000; font-size: 2.5rem;">ATENÇÃO!</h1>
+            <p style="font-size: 1.2rem; color: #555; margin-bottom: 20px;">
+                Sua inscrição foi confirmada. <br>
+                Para receber o link das aulas e materiais exclusivos, você <strong>precisa</strong> entrar no grupo VIP.
+            </p>
+
+            <div class="mockup-container">
+                <img src="img/ChatGPT Image 8 de jan. de 2026, 16_08_46.png" alt="Print Grupo WhatsApp" class="mockup-img">
+            </div>
+
+            <p style="color: #666; font-size: 0.9rem;">Você receberá uma mensagem do nosso número oficial.</p>
+
+            <a href="LINK_DO_SEU_GRUPO_WHATSAPP" class="btn-whatsapp">
+                <i class="fab fa-whatsapp"></i> ENTRAR NO GRUPO VIP
+            </a>
+        </div>
+    </section>
+
+    <script>
+        // 1. Configuração do Cronômetro
+        const targetDate = new Date("January 29, 2026 20:00:00").getTime(); // Ajuste o ano se for 2025
+
+        const timerInterval = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            // Cálculos de tempo
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Atualiza HTML
+            document.getElementById("days").innerText = days < 10 ? "0" + days : days;
+            document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
+            document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
+            document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
+
+            // Se o tempo acabar
+            if (distance < 0) {
+                clearInterval(timerInterval);
+                document.getElementById("countdown").style.display = "none";
+                document.getElementById("signup-form-box").style.display = "none"; // Esconde form
+                document.getElementById("timer-error").style.display = "block"; // Mostra erro
+                document.querySelector(".sub-headline").innerText = "As inscrições para este evento foram encerradas.";
+            }
+        }, 1000);
+
+        // 2. Manipulação do Formulário (Transição de Página)
+        const form = document.getElementById('leadForm');
+        
+        form.addEventListener('submit', function(e) {
+            e.preventDefault(); // Impede o redirecionamento padrão do navegador
+            
+            const btn = form.querySelector('.btn-submit');
+            const originalText = btn.innerText;
+            btn.innerText = "Enviando...";
+            btn.style.opacity = "0.7";
+
+            // Envia os dados via fetch (AJAX) para o FormSubmit
+            fetch(form.action, {
+                method: "POST",
+                body: new FormData(form),
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    // SUCESSO: Troca as seções
+                    document.getElementById('capture-section').style.display = 'none'; // Some a página 1
+                    document.getElementById('thank-you-section').style.display = 'flex'; // Aparece a página 2
+                    window.scrollTo(0,0); // Rola para o topo
+                } else {
+                    alert("Ocorreu um erro. Tente novamente.");
+                    btn.innerText = originalText;
+                    btn.style.opacity = "1";
+                }
+            })
+            .catch(error => {
+                alert("Ocorreu um erro na conexão.");
+                btn.innerText = originalText;
+                btn.style.opacity = "1";
+            });
+        });
+    </script>
+
+</body>
+</html>
