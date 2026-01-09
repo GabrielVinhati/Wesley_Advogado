@@ -3,6 +3,18 @@
     background-color: var(--dark-bg);
     padding: 100px 20px;
 }
+.trocaCOR {
+    animation: trocaCor 1s infinite alternate;
+}
+
+@keyframes trocaCor {
+    from {
+        color: #ffffff;
+    }
+    to {
+        color: #FF5722;
+    }
+}
 
 .learn-container {
     max-width: 1200px;
@@ -34,6 +46,39 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 30px;
+}
+.mentor-card-mobile {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .mentor-card-mobile {
+        display: block;
+        margin-top: 40px;
+        background-color: #0a0a0a;
+        border-radius: 20px;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+    }
+
+    .mentor-card-mobile img {
+        width: 100%;
+        max-width: 320px;
+        border-radius: 15px;
+        margin-bottom: 15px;
+    }
+
+    .mentor-name {
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-bottom: 5px;
+    }
+
+    .mentor-role {
+        font-size: 0.9rem;
+        color: #aaa;
+    }
 }
 
 .learn-item {

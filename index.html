@@ -244,6 +244,13 @@
         /* --- RESPONSIVIDADE (MOBILE) --- */
         @media (max-width: 768px) {
             h1 { font-size: 2.2rem; }
+            .top-tag {
+            width: auto !important;
+            max-width: 100%;
+            font-size: 1.2rem;
+            text-align: left;
+            }
+
             #whatsapp-float {
     right: 15px;
     bottom: 15px;
@@ -350,6 +357,7 @@
         <div class="navbar-container">
             <button id="navbar-cta">
                 Participar do Evento
+                <p style="font-size: 8px;">*Exclusivo para advogados!</p>
             </button>
         </div>
     </nav>
@@ -358,7 +366,7 @@
         <div class="overlay"></div>
         <div class="content-container">
             <div class="left-column">
-                <span class="top-tag" style="font-size: 30px; width: 700px;">Evento Exclusivo para <span style="color: #fff;"> Advogados</span></span>
+                <span class="top-tag" style="font-size: 30px; width: 700px;">Evento Exclusivo para <span class="trocaCOR" style="color: #fff;"> Advogados</span></span>
                 
                 <h1>IMERSÃO <br><span>TRABALHISTA NA PRÁTICA</span></h1>
                 
@@ -415,6 +423,14 @@
                         <p class="security-text"><i class="fa fa-lock"></i> Suas informações estão seguras.</p>
                     </form>
                 </div>
+                <div class="mentor-card-mobile">
+                    <img 
+                        src="https://raw.githubusercontent.com/GabrielVinhati/img-wesley/refs/heads/main/Design%20sem%20nome%20(1).png"
+                        alt="Dr. Wesley Campores"
+                    >
+                    <p class="mentor-name">Dr. Wesley Campores</p>
+                    <p class="mentor-role">Advogado Trabalhista</p>
+                </div>
             </div>
         </div>
     </section>
@@ -440,7 +456,7 @@
                 </div>
     
                 <div class="learn-item">
-                    <i class="fa-solid fa-shield-halved"></i>
+                    <i class="fas fa-shield-alt"></i>
                     <h3>Segurança para Advogar</h3>
                     <p>Aprenda o que fazer e o que evitar para não cometer erros que travam sua carreira.</p>
                 </div>
