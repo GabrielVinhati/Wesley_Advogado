@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Imersão Trabalhista na Prática | Evento Exclusivo</title>
-    
+    <link rel="icon" href="img/lawyer_86193.webp" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;800&display=swap" rel="stylesheet">
@@ -139,13 +139,7 @@
         }
 
         /* --- FORMULÁRIO --- */
-        .form-box {
-            background: rgba(162, 60, 5, 0.05);
-            backdrop-filter: blur(10px);
-            padding: 30px;
-            border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
+
 
         .input-group { margin-bottom: 15px; }
 
@@ -244,6 +238,15 @@
         /* --- RESPONSIVIDADE (MOBILE) --- */
         @media (max-width: 768px) {
             h1 { font-size: 2.2rem; }
+            #brevo-form {
+        /* Aumentamos a altura pois no celular o formulário fica mais comprido */
+        height: 500px !important; 
+    }
+    
+    /* Ajuste extra para garantir que a caixa não corte nada */
+    #signup-form-box {
+        padding-bottom: 20px !important;
+    }
             .security-text{
                 color: #000;
             }
@@ -356,10 +359,7 @@
             .time-box { min-width: 60px; padding: 5px; }
             .time-value { font-size: 1.5rem; }
             
-            .form-box {
-                padding: 20px;
-                background: #FF5722; /* Mais escuro para contraste no mobile */
-            }
+            
         }
     </style>
 </head>
@@ -384,7 +384,7 @@
                 <p class="sub-headline">
                     Descubra como advogar com segurança, fechar contratos todos os dias e dominar a prática trabalhista em 2026.
                 </p>
-                <h2 style="margin-bottom: 20px; width: 400px;">DATA 29/01/2025 ÀS 20:00 (HORÁRIO DE BRASÍLIA)</h2>
+                <h2 style="margin-bottom: 20px; width: 400px;">DATA 29/01/2026 ÀS 20:00 (HORÁRIO DE BRASÍLIA)</h2>
                 <p style="margin-bottom: 20px;">Evento ao vivo e gratuito!</p>
                 <div id="timer-error">⚠️ As inscrições encerraram! O tempo expirou.</div>
                 <div class="timer-container" id="countdown">
@@ -406,34 +406,17 @@
                     </div>
                 </div>
 
-                <div class="form-box" id="signup-form-box">
-                    <form id="leadForm" action="https://formsubmit.co/SEU_EMAIL_AQUI" method="POST">
-                        
-                        <input type="hidden" name="_captcha" value="false">
-                        <input type="hidden" name="_template" value="table">
-                        <input type="hidden" name="_subject" value="Novo Lead - Imersão Trabalhista">
-
-                        <div class="input-group">
-                            <input type="text" name="name" placeholder="Nome completo" required>
-                        </div>
-                        <div class="input-group">
-                            <input type="email" name="email" placeholder="Seu melhor e-mail" required>
-                        </div>
-                        <div class="input-group">
-                            <input 
-                                type="tel" 
-                                name="phone" 
-                                placeholder="Telefone / WhatsApp" 
-                                required
-                            >
-                        </div>
-                        
-                        <button type="submit" class="btn-submit">
-                            APERTE AQUI PARA SE INSCREVER
-                        </button>
-                        
-                        <p class="security-text"><i class="fa fa-lock"></i> Suas informações estão seguras.</p>
-                    </form>
+                <div class="form-box" id="signup-form-box" style="border-radius: 10px;padding: 0; overflow: hidden; background: transparent !important; border: none !important; box-shadow: none !important;">
+                    <iframe 
+                        id="brevo-form"
+                        src="https://825f0fbd.sibforms.com/serve/MUIFAFS-1qHSih9GQZvvQf1NnawfQ4pIxnCin8h-stqNpZ4_A5Sw6_V5h0wKAOnVLC7TISGAUnrkKf_xLK-7KqCAJBJ23stf7nLflfz9PMcnDUt8MV0r-OlF8VFtzakeflg7_IZ6yIJubhtVcPWVthCS9PfHT34SD53WlCPkseLYp0NxHFfhbQyJ06xt5TpofH2fqwD8XU7z_qvVxw==" 
+                        width="100%" 
+                        height="570" 
+                        frameborder="0" 
+                        scrolling="no" 
+                        style="display: block; border: none; background: transparent !important;"
+                        allowfullscreen>
+                    </iframe>
                 </div>
                 <div class="mentor-card-mobile">
                     <img 
@@ -538,25 +521,7 @@
         </div>
     </section>
     
-    <section id="thank-you-section">
-        <div class="thank-you-container">
-            <h1 style="color: #000; font-size: 2.5rem;">ATENÇÃO!</h1>
-            <p style="font-size: 1.2rem; color: #555; margin-bottom: 20px;">
-                Sua inscrição foi confirmada. <br>
-                Para receber o link das aulas e materiais exclusivos, você <strong>precisa</strong> entrar no grupo VIP.
-            </p>
 
-            <div class="mockup-container">
-                <img src="img/ChatGPT Image 8 de jan. de 2026, 16_08_46.png" alt="Print Grupo WhatsApp" class="mockup-img">
-            </div>
-
-            <p style="color: #666; font-size: 0.9rem;">Você receberá uma mensagem do nosso número oficial.</p>
-
-            <a href="LINK_DO_SEU_GRUPO_WHATSAPP" class="btn-whatsapp">
-                <i class="fab fa-whatsapp"></i> ENTRAR NO GRUPO VIP
-            </a>
-        </div>
-    </section>
     <footer id="site-footer">
         <div class="footer-container">
             <p class="footer-event">
@@ -573,7 +538,7 @@
         </div>
     
         <a 
-            href="https://wa.me/5599999999999" 
+            href="https://wa.me/5527997692629?text=Olá,%20estou%20com%20uma%20dúvida%20relacionada%20à%20live." 
             target="_blank" 
             class="whatsapp-button"
             aria-label="Falar no WhatsApp"
@@ -583,72 +548,55 @@
     </div>
     
     <script>
-        // 1. Configuração do Cronômetro
-        const targetDate = new Date("January 29, 2026 20:00:00").getTime(); // Ajuste o ano se for 2025
+        // --- 1. CONFIGURAÇÃO DO CRONÔMETRO ---
+        // Certifique-se que a data está no formato inglês (Month Day, Year Time)
+        const targetDate = new Date("January 29, 2026 20:00:00").getTime();
 
         const timerInterval = setInterval(function() {
             const now = new Date().getTime();
             const distance = targetDate - now;
 
-            // Cálculos de tempo
+            // Cálculos matemáticos para dias, horas, minutos e segundos
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            // Atualiza HTML
-            document.getElementById("days").innerText = days < 10 ? "0" + days : days;
-            document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
-            document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
-            document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
+            // Verifica se os elementos existem antes de tentar escrever neles (Segurança)
+            const elDays = document.getElementById("days");
+            const elHours = document.getElementById("hours");
+            const elMinutes = document.getElementById("minutes");
+            const elSeconds = document.getElementById("seconds");
 
-            // Se o tempo acabar
+            if (elDays && elHours && elMinutes && elSeconds) {
+                // Atualiza o HTML adicionando o zero à esquerda se for menor que 10
+                elDays.innerText = days < 10 ? "0" + days : days;
+                elHours.innerText = hours < 10 ? "0" + hours : hours;
+                elMinutes.innerText = minutes < 10 ? "0" + minutes : minutes;
+                elSeconds.innerText = seconds < 10 ? "0" + seconds : seconds;
+            }
+
+            // --- SE O TEMPO ACABAR ---
             if (distance < 0) {
                 clearInterval(timerInterval);
-                document.getElementById("countdown").style.display = "none";
-                document.getElementById("signup-form-box").style.display = "none"; // Esconde form
-                document.getElementById("timer-error").style.display = "block"; // Mostra erro
-                document.querySelector(".sub-headline").innerText = "As inscrições para este evento foram encerradas.";
+                
+                // Esconde o contador
+                const countdownContainer = document.getElementById("countdown");
+                if(countdownContainer) countdownContainer.style.display = "none";
+                
+                // Esconde o iframe do formulário
+                const formBox = document.getElementById("signup-form-box");
+                if(formBox) formBox.style.display = "none"; 
+
+                // Mostra mensagem de erro
+                const errorMsg = document.getElementById("timer-error");
+                if(errorMsg) errorMsg.style.display = "block";
+                
+                // Altera o texto da headline
+                const subHeadline = document.querySelector(".sub-headline");
+                if(subHeadline) subHeadline.innerText = "As inscrições para este evento foram encerradas.";
             }
         }, 1000);
-
-        // 2. Manipulação do Formulário (Transição de Página)
-        const form = document.getElementById('leadForm');
-        
-        form.addEventListener('submit', function(e) {
-            e.preventDefault(); // Impede o redirecionamento padrão do navegador
-            
-            const btn = form.querySelector('.btn-submit');
-            const originalText = btn.innerText;
-            btn.innerText = "Enviando...";
-            btn.style.opacity = "0.7";
-
-            // Envia os dados via fetch (AJAX) para o FormSubmit
-            fetch(form.action, {
-                method: "POST",
-                body: new FormData(form),
-                headers: {
-                    'Accept': 'application/json'
-                }
-            })
-            .then(response => {
-                if (response.ok) {
-                    // SUCESSO: Troca as seções
-                    document.getElementById('capture-section').style.display = 'none'; // Some a página 1
-                    document.getElementById('thank-you-section').style.display = 'flex'; // Aparece a página 2
-                    window.scrollTo(0,0); // Rola para o topo
-                } else {
-                    alert("Ocorreu um erro. Tente novamente.");
-                    btn.innerText = originalText;
-                    btn.style.opacity = "1";
-                }
-            })
-            .catch(error => {
-                alert("Ocorreu um erro na conexão.");
-                btn.innerText = originalText;
-                btn.style.opacity = "1";
-            });
-        });
     </script>
     <script src="main.js"></script>
 </body>
