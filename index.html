@@ -240,7 +240,8 @@
             h1 { font-size: 2.2rem; }
             #brevo-form {
         /* Aumentamos a altura pois no celular o formulário fica mais comprido */
-        height: 500px !important; 
+        height: 700px !important; 
+        padding-bottom: 20px;
     }
     
     /* Ajuste extra para garantir que a caixa não corte nada */
@@ -253,8 +254,7 @@
             #capture-section {
         background-position: top center; 
         
-        /* ESTA LINHA ABAIXO É A MÁGICA: */
-        background-image: none !important; /* Remove a imagem de fundo só no celular */
+        /* ESTA LINHA ABAIXO É A MÁGICA: *//* Remove a imagem de fundo só no celular */
         
         background-color: #050505; /* Garante que o fundo fique preto */
     }
@@ -339,7 +339,7 @@
             #capture-section {
                 background-position: top center; /* Foca no rosto se a imagem for vertical */
                 /* INSIRA AQUI A IMAGEM VERSÃO MOBILE SE TIVER UMA ESPECÍFICA */
-                /* background-image: url('img/Design sem nome (24).png'); */
+               background-image: url('img/Design sem nome (24).png');
             }
 
             .overlay {
@@ -364,69 +364,39 @@
     </style>
 </head>
 <body>
-    <nav id="sticky-navbar">
-        <div class="navbar-container">
-            <button id="navbar-cta">
-                Participar do Evento
-                <p style="font-size: 8px;">*Exclusivo para advogados!</p>
-            </button>
-        </div>
-    </nav>
+    <div class="top-red-banner">
+        Evento exclusivo para advogados
+    </div>
     
     <section id="capture-section">
         <div class="overlay"></div>
-        <div class="content-container">
-            <div class="left-column">
-                <span class="top-tag" style="font-size: 30px; width: 700px;">Evento Exclusivo para <span class="trocaCOR" style="color: #fff;"> Advogados</span></span>
-                
-                <h1>IMERSÃO <br><span>TRABALHISTA NA PRÁTICA</span></h1>
-                
-                <p class="sub-headline">
-                    Descubra como advogar com segurança, fechar contratos todos os dias e dominar a prática trabalhista em 2026.
-                </p>
-                <h2 style="margin-bottom: 20px; width: 400px;">DATA 29/01/2026 ÀS 20:00 (HORÁRIO DE BRASÍLIA)</h2>
-                <p style="margin-bottom: 20px;">Evento ao vivo e gratuito!</p>
-                <div id="timer-error">⚠️ As inscrições encerraram! O tempo expirou.</div>
-                <div class="timer-container" id="countdown">
-                    <div class="time-box">
-                        <span class="time-value" id="days">00</span>
-                        <span class="time-label">Dias</span>
-                    </div>
-                    <div class="time-box">
-                        <span class="time-value" id="hours">00</span>
-                        <span class="time-label">Horas</span>
-                    </div>
-                    <div class="time-box">
-                        <span class="time-value" id="minutes">00</span>
-                        <span class="time-label">Min</span>
-                    </div>
-                    <div class="time-box">
-                        <span class="time-value" id="seconds">00</span>
-                        <span class="time-label">Seg</span>
-                    </div>
-                </div>
-
-                <div class="form-box" id="signup-form-box" style="border-radius: 10px;padding: 0; overflow: hidden; background: transparent !important; border: none !important; box-shadow: none !important;">
-                    <iframe 
-                        id="brevo-form"
-                        src="https://825f0fbd.sibforms.com/serve/MUIFAFS-1qHSih9GQZvvQf1NnawfQ4pIxnCin8h-stqNpZ4_A5Sw6_V5h0wKAOnVLC7TISGAUnrkKf_xLK-7KqCAJBJ23stf7nLflfz9PMcnDUt8MV0r-OlF8VFtzakeflg7_IZ6yIJubhtVcPWVthCS9PfHT34SD53WlCPkseLYp0NxHFfhbQyJ06xt5TpofH2fqwD8XU7z_qvVxw==" 
-                        width="100%" 
-                        height="570" 
-                        frameborder="0" 
-                        scrolling="no" 
-                        style="display: block; border: none; background: transparent !important;"
-                        allowfullscreen>
-                    </iframe>
-                </div>
-                <div class="mentor-card-mobile">
-                    <img 
-                        src="https://raw.githubusercontent.com/GabrielVinhati/img-wesley/refs/heads/main/Gemini_Generated_Image_ddjltdddjltdddjl.png"
-                        alt="Dr. Wesley Campores"
-                    >
-                    <p class="mentor-name">Dr. Wesley Campores</p>
-                    <p class="mentor-role">Advogado Trabalhista</p>
-                </div>
-            </div>
+        
+        <div class="content-container central-layout">
+            
+            <img src="img\Gemini_Generated_Image_qv8gvqqv8gvqqv8g - Editado.png" alt="Logo Imersão Trabalhista" class="hero-logo">
+    
+            <h1 class="hero-headline">
+                Descubra como advogar com segurança, <span class="highlight-yellow">fechar contratos todos os dias</span> e dominar a prática trabalhista <span class="highlight-yellow">em 2026.</span>
+            </h1>
+            
+            <p class="hero-subtext">
+                Em uma aula ao vivo eu vou te mostrar o plano prático para faturar mais de 15 mil reais todos os meses com prática trabalhista
+            </p>
+            
+            <h2 class="hero-date">
+                DATA 29/01/2026 ÀS 20 horas<br>
+                100% online e gratuito
+            </h2>
+            
+            <a 
+    href="https://chat.whatsapp.com/EdUhf3ME9OaDQ1E2MZRqOg" 
+    target="_blank" 
+    class="whatsapp-cta-button"
+    onclick="setTimeout(function(){ window.location.href = 'obrigado.html'; }, 1000);"
+>
+    <i class="fab fa-whatsapp"></i> Entrar no Grupo VIP do Evento
+</a>
+    
         </div>
     </section>
     <section id="learn-section">
@@ -547,57 +517,7 @@
         </a>
     </div>
     
-    <script>
-        // --- 1. CONFIGURAÇÃO DO CRONÔMETRO ---
-        // Certifique-se que a data está no formato inglês (Month Day, Year Time)
-        const targetDate = new Date("January 29, 2026 20:00:00").getTime();
 
-        const timerInterval = setInterval(function() {
-            const now = new Date().getTime();
-            const distance = targetDate - now;
-
-            // Cálculos matemáticos para dias, horas, minutos e segundos
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            // Verifica se os elementos existem antes de tentar escrever neles (Segurança)
-            const elDays = document.getElementById("days");
-            const elHours = document.getElementById("hours");
-            const elMinutes = document.getElementById("minutes");
-            const elSeconds = document.getElementById("seconds");
-
-            if (elDays && elHours && elMinutes && elSeconds) {
-                // Atualiza o HTML adicionando o zero à esquerda se for menor que 10
-                elDays.innerText = days < 10 ? "0" + days : days;
-                elHours.innerText = hours < 10 ? "0" + hours : hours;
-                elMinutes.innerText = minutes < 10 ? "0" + minutes : minutes;
-                elSeconds.innerText = seconds < 10 ? "0" + seconds : seconds;
-            }
-
-            // --- SE O TEMPO ACABAR ---
-            if (distance < 0) {
-                clearInterval(timerInterval);
-                
-                // Esconde o contador
-                const countdownContainer = document.getElementById("countdown");
-                if(countdownContainer) countdownContainer.style.display = "none";
-                
-                // Esconde o iframe do formulário
-                const formBox = document.getElementById("signup-form-box");
-                if(formBox) formBox.style.display = "none"; 
-
-                // Mostra mensagem de erro
-                const errorMsg = document.getElementById("timer-error");
-                if(errorMsg) errorMsg.style.display = "block";
-                
-                // Altera o texto da headline
-                const subHeadline = document.querySelector(".sub-headline");
-                if(subHeadline) subHeadline.innerText = "As inscrições para este evento foram encerradas.";
-            }
-        }, 1000);
-    </script>
     <script src="main.js"></script>
 </body>
 </html>
